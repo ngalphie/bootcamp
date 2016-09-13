@@ -33,9 +33,13 @@ def gc_map(seq, block_size, threshold):
         seq_gc.append(gc_con(seq[i*block_size:(i+1)*block_size]))
         seq_list.append(seq[i*block_size:(i+1)*block_size])
 
+    for l in range(len(seq_list)):
+        seqlist[l]=seq_list[l].upper()
+
     for j in range(len(seq_list)):
         if seq_gc[j] < threshold:
             seq_list[j]=seq_list[j].lower()
+
     k=0
     while k < len(seq_list):
         seqfinal += seq_list[k]
