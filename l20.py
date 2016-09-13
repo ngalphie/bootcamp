@@ -10,3 +10,6 @@ def xa_to_diameter(xa):
     #Computer diamter from
     #Area = pi * d^2/4
     diameter = np.sqrt(xa*4/np.pi)
+
+    return diameter
+    
