@@ -25,14 +25,16 @@ sem = data_txt[:, 2]
 # plt.ylabel('Normalized GFP')
 # plt.show()
 
-# Plot ipgt vs gfp
-plt.close()
-plt.errorbar(iptg, gfp, yerr=sem, marker='.',
-             markersize=20, linestyle='none')
-plt.ylim(-0.02, 1.1)
-plt.xlim(8e-4, 15)
-plt.title('IPTG Titration - semilog X')
-plt.xlabel('IPTG (mM)')
-plt.ylabel('Normalized GFP')
-plt.xscale('log')
-plt.show()
+# # Plot ipgt vs gfp
+# plt.close()
+# plt.errorbar(iptg, gfp, yerr=sem, marker='.',
+#              markersize=20, linestyle='none')
+# plt.ylim(-0.02, 1.1)
+# plt.xlim(8e-4, 15)
+# plt.title('IPTG Titration - semilog X')
+# plt.xlabel('IPTG (mM)')
+# plt.ylabel('Normalized GFP')
+# plt.xscale('log')
+# plt.show()
+
+#Practice exercise 3
