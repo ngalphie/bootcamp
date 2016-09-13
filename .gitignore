@@ -1,1 +1,10 @@
 __pycache__/
+
+#Ignore image files.
+*.jpg
+*.tif
+*.tiff
+*.pdf
+*.svg
+*.eps
+*.jpeg
