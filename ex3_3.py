@@ -11,7 +11,7 @@ alpha = 1
 beta = 0.2
 delta = 0.3
 gamma = 0.8
-delta_t = 0.001
+delta_t = 0.000001
 t = np.arange(0, 60, delta_t)
 
 # Make an array to store the number of r and foxes
