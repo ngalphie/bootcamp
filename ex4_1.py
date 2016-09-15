@@ -66,23 +66,111 @@ g_2012.columns = ['band', 'species', 'beak length (mm)', 'beak depth (mm)', 'yea
 
 grantdf = pd.concat([g_1973, g_1975, g_1987, g_1991, g_2012], ignore_index=True)
 
-all_bands = grantdf.loc[:,'band']
-unique_bands =pd.DataFrame(np.unique(grantdf.loc[:,'band']))
+# all_bands = grantdf.loc[:,'band']
+# unique_bands =pd.DataFrame(np.unique(grantdf.loc[:,'band']))
 
 grantdf = grantdf.drop_duplicates(['year', 'band'])
 
-#d beak depths of fortis
-x1,y1 = ecdf(grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==1987), 'beak depth (mm)'])
-x2,y2 = ecdf(grantdf.loc[(grantdf['species']=='scadens') & (grantdf['year']==1987), 'beak depth (mm)'])
+#d beak depths of fortis and scandens in 1987
 plt.close()
+plt.clf()
+x1,y1 = ecdf(grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==1987), 'beak depth (mm)'])
+x2,y2 = ecdf(grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==1987), 'beak depth (mm)'])
 # bs_sample = np.random.choice(bd_1975, replace=True, size = len(bd_1975))
 # x, y = ecdf(bs_sample)
 plt.plot(x1, y1, marker='.', linestyle='none', alpha=0.5)
 plt.plot(x2, y2, marker='.', linestyle='none', alpha=0.5)
-
 # # plt.plot(x_1975_bs, y_1975_bs, marker='.', linestyle='none')
 plt.xlabel('beak depth (mm)')
 plt.ylabel('ECDF')
-
 plt.legend(('fortis', 'scadens'), loc="lower right")
 plt.margins(0.02)
+plt.savefig('beak_depth_1987_fortis_scandens.pdf')
+
+#d beak lengths of toris and scandens in 1987
+plt.close()
+plt.clf()
+x3,y3 = ecdf(grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==1987), 'beak length (mm)'])
+x4,y4 = ecdf(grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==1987), 'beak length (mm)'])
+plt.plot(x3, y3, marker='.', linestyle='none', alpha=0.5)
+plt.plot(x4, y4, marker='.', linestyle='none', alpha=0.5)
+plt.xlabel('beak length (mm)')
+plt.ylabel('ECDF')
+plt.legend(('fortis', 'scadens'), loc="lower right")
+plt.margins(0.02)
+plt.savefig('beak_length_1987_fortis_scandens.pdf')
+
+#e depth vs length 1973
+plt.close()
+plt.clf()
+fortis_bl = grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==1973), 'beak length (mm)']
+scandens_bl = grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==1973), 'beak length (mm)']
+fortis_bd = grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==1973), 'beak depth (mm)']
+scandens_bd = grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==1973), 'beak depth (mm)']
+plt.plot(fortis_bl, fortis_bd, marker='.', linestyle='none', alpha=0.5, color='blue')
+plt.plot(scandens_bl, scandens_bd, marker='.', linestyle='none', alpha=0.5, color='red')
+plt.xlabel('beak length (mm)')
+plt.ylabel('beak depth (mm)')
+plt.legend(('fortis', 'scadens'), loc="lower right")
+plt.margins(0.02)
+plt.savefig('length_depth_1973_fortis_scandens.pdf')
+
+#e depth vs length 1975
+plt.close()
+plt.clf()
+fortis_bl = grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==1975), 'beak length (mm)']
+scandens_bl = grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==1975), 'beak length (mm)']
+fortis_bd = grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==1975), 'beak depth (mm)']
+scandens_bd = grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==1975), 'beak depth (mm)']
+plt.plot(fortis_bl, fortis_bd, marker='.', linestyle='none', alpha=0.5, color='blue')
+plt.plot(scandens_bl, scandens_bd, marker='.', linestyle='none', alpha=0.5, color='red')
+plt.xlabel('beak length (mm)')
+plt.ylabel('beak depth (mm)')
+plt.legend(('fortis', 'scadens'), loc="lower right")
+plt.margins(0.02)
+plt.savefig('length_depth_1975_fortis_scandens.pdf')
+
+#e depth vs length 1987
+plt.close()
+plt.clf()
+fortis_bl = grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==1987), 'beak length (mm)']
+scandens_bl = grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==1987), 'beak length (mm)']
+fortis_bd = grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==1987), 'beak depth (mm)']
+scandens_bd = grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==1987), 'beak depth (mm)']
+plt.plot(fortis_bl, fortis_bd, marker='.', linestyle='none', alpha=0.5, color='blue')
+plt.plot(scandens_bl, scandens_bd, marker='.', linestyle='none', alpha=0.5, color='red')
+plt.xlabel('beak length (mm)')
+plt.ylabel('beak depth (mm)')
+plt.legend(('fortis', 'scadens'), loc="lower right")
+plt.margins(0.02)
+plt.savefig('length_depth_1987_fortis_scandens.pdf')
+
+#e depth vs length 1991
+plt.close()
+plt.clf()
+fortis_bl = grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==1991), 'beak length (mm)']
+scandens_bl = grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==1991), 'beak length (mm)']
+fortis_bd = grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==1991), 'beak depth (mm)']
+scandens_bd = grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==1991), 'beak depth (mm)']
+plt.plot(fortis_bl, fortis_bd, marker='.', linestyle='none', alpha=0.5, color='blue')
+plt.plot(scandens_bl, scandens_bd, marker='.', linestyle='none', alpha=0.5, color='red')
+plt.xlabel('beak length (mm)')
+plt.ylabel('beak depth (mm)')
+plt.legend(('fortis', 'scadens'), loc="lower right")
+plt.margins(0.02)
+plt.savefig('length_depth_1991_fortis_scandens.pdf')
+
+#e depth vs length 2012
+plt.close()
+plt.clf()
+fortis_bl = grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==2012), 'beak length (mm)']
+scandens_bl = grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==2012), 'beak length (mm)']
+fortis_bd = grantdf.loc[(grantdf['species']=='fortis') & (grantdf['year']==2012), 'beak depth (mm)']
+scandens_bd = grantdf.loc[(grantdf['species']=='scandens') & (grantdf['year']==2012), 'beak depth (mm)']
+plt.plot(fortis_bl, fortis_bd, marker='.', linestyle='none', alpha=0.5, color='blue')
+plt.plot(scandens_bl, scandens_bd, marker='.', linestyle='none', alpha=0.5, color='red')
+plt.xlabel('beak length (mm)')
+plt.ylabel('beak depth (mm)')
+plt.legend(('fortis', 'scadens'), loc="lower right")
+plt.margins(0.02)
+plt.savefig('length_depth_2012_fortis_scandens.pdf')
